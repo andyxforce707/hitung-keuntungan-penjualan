@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>value</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: white;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 80%;
+        margin: 10px auto;
+        border: 2px solid white;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 50px;
+        border-radius: 18px;
+        /* background-image: linear-gradient(to bottom right, darkblue, blue); */
+        background: url('bg.jpg') no-repeat;
+        transition: 0.3s;
+        backdrop-filter: blur(10px);
+        background-size: cover;
+        filter: brightness(0.8);
+      }
+
+      .judul1 {
+        text-align: center;
+      }
+
+      .judul2 {
+        margin-top: -15px;
+        margin-bottom: 20px;
+        padding: 5px 10px;
+        color: lightblue;
+        text-align: center;
+      }
+
+      .txt1 {
+        position: relative;
+        width: 40%;
+        padding: 10px 15px;
+        outline: none;
+        border-radius: 23px;
+        border: 1.5px solid #fff;
+        color: white;
+        margin: 15px 0;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.1);
+        font-size: 1em;
+      }
+      .txt2 {
+        position: relative;
+        width: 40%;
+        padding: 10px 15px;
+        outline: none;
+        border-radius: 23px;
+        border: 1.5px solid #fff;
+        color: white;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.1);
+        font-size: 1em;
+      }
+
+      .hargabeli {
+        position: absolute;
+        transform: translateY(-175px);
+        color: red;
+        transition: 0.5s;
+      }
+      .hargajual {
+        position: absolute;
+        transform: translateY(-110px);
+        color: green;
+        transition: 0.5s;
+      }
+
+      .txt1:focus ~ .hargabeli,
+      .txt1:valid ~ .hargabeli {
+        transform: translateX(-100px) translateY(-195px);
+        padding: 2px 10px;
+        border: 1.5px solid white;
+        background-color: rgba(0, 0, 0, 0.9);
+        border-radius: 16px;
+        color: rgb(219, 219, 219);
+        font-size: 0.8em;
+      }
+      .txt2:focus ~ .hargajual,
+      .txt2:valid ~ .hargajual {
+        transform: translateX(-100px) translateY(-131px);
+        padding: 2px 10px;
+        border: 1.5px solid white;
+        background-color: rgba(0, 0, 0, 0.9);
+        border-radius: 16px;
+        color: rgb(219, 219, 219);
+        font-size: 0.8em;
+      }
+
+      /* tampilan value 1 */
+      .hasil1 {
+        border-bottom: 2px solid red;
+        height: 20px;
+        padding-bottom: 30px;
+        width: 200px;
+        text-align: center;
+      }
+
+      .hasil2 {
+        border-bottom: 2px solid lime;
+        height: 20px;
+        padding-bottom: 30px;
+        width: 200px;
+        text-align: center;
+      }
+      /* tombol cek */
+      .submit {
+        width: 40%;
+        padding: 10px 15px;
+        outline: none;
+        border-radius: 19px;
+        border: 2px solid red;
+        color: black;
+        font-size: 0.9em;
+        letter-spacing: 0.03em;
+        font-weight: bolder;
+        margin-top: 25px;
+        background: linear-gradient(to right, tomato, transparent);
+        color: #fff;
+        border: 1px solid #000;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .submit:hover {
+        border: 1px solid white;
+        color: black;
+      }
+
+      /* label */
+      .label {
+        color: black;
+      }
+
+      /* tampilan untung */
+      .untung {
+        border-bottom: 2px solid white;
+        height: 20px;
+        padding-bottom: 30px;
+        width: 200px;
+        text-align: center;
+        font-size: 1.2em;
+      }
+      /* */
+      .hasil1 {
+        color: red;
+        font-size: 1.05em;
+        letter-spacing: 0.03em;
+      }
+      .hasil2 {
+        color: lime;
+        font-size: 1.05em;
+        letter-spacing: 0.03em;
+      }
+
+      /* */
+      em {
+        margin-top: 20px;
+      }
+      em a {
+        color: black;
+        text-decoration: none;
+      }
+      em a:hover {
+        color: black;
+        text-decoration: none;
+        border-bottom: 1px solid black;
+      }
+
+      .last {
+        font-size: 0.9em;
+        color: rgb(233, 228, 200);
+      }
+
+      /* screen breakpoint */
+      @media screen and (max-width: 576px) {
+        body {
+          background-repeat: repeat;
+          margin: 70px auto;
+        }
+        .txt1,
+        .txt2,
+        .submit {
+          width: 95%;
+        }
+
+        .hargabeli {
+          transform: translateY(-157px);
+          color: white;
+        }
+        .hargajual {
+          transform: translateY(-91px);
+          color: white;
+        }
+
+        .txt1:focus ~ .hargabeli,
+        .txt1:valid ~ .hargabeli {
+          transform: translateX(-85px) translateY(-175px);
+        }
+        .txt2:focus ~ .hargajual,
+        .txt2:valid ~ .hargajual {
+          transform: translateX(-85px) translateY(-110px);
+        }
+
+        .submit {
+          color: white;
+        }
+
+        em a {
+          color: gold;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="judul1">Website Penghitung</h1>
+    <h1 class="judul2">Presentasi Keuntungan</h1>
+    <input class="txt1" type="text" integer required />
+    <label class="hargabeli" for="">ISI HARGA BELI</label>
+    <input class="txt2" type="text" integer required />
+    <label class="hargajual" for="">ISI HARGA JUAL</label>
+    <input class="submit" type="submit" value="HITUNG KEUNTUNGAN" /><br /><br />
+
+    <label class="label" for="">Harga Beli : </label>
+    <p class="hasil1"></p>
+    <label class="label" for="">Harga Jual : </label>
+    <p class="hasil2"></p>
+
+    <code class="labeluntung">Keuntungan : </code>
+    <code class="untung"></code>
+    <em>A Website created by <a href="https://instagram.com/andyxforce/">@andyxforce</a></em>
+    <code class="last">Alrights reserved, Copyright 2023</code>
+
+    <script>
+      const txt1 = document.querySelector('.txt1');
+      const txt2 = document.querySelector('.txt2');
+      const submit = document.querySelector('.submit');
+      const untung = document.querySelector('.untung');
+      const labeluntung = document.querySelector('.labeluntung');
+
+      txt1.addEventListener('input', function () {
+        document.querySelector('.hasil1').innerHTML = parseInt(txt1.value);
+      });
+      txt2.addEventListener('input', function () {
+        document.querySelector('.hasil2').innerHTML = parseInt(txt2.value);
+      });
+
+      submit.addEventListener('click', (hargaBeli, hargaJual) => {
+        // untung.innerHTML = parseInt(txt1.value) + parseInt(txt2.value);
+        var hb = parseInt(txt1.value);
+        var hj = parseInt(txt2.value);
+        var keuntungan = hj - hb;
+        var percent = 100;
+        var keuntunganpercent = hb / keuntungan;
+        console.log('Kerugian / Keuntungan anda : ' + percent / keuntunganpercent + '%');
+        if (percent / keuntunganpercent < 0) {
+          labeluntung.innerHTML = '<code style="color: black;">Kerugian anda : </code>';
+          return (untung.innerHTML = percent / keuntunganpercent + '%');
+        } else {
+          labeluntung.innerHTML = '<code style="color: lime;">Keuntungan anda : </code>';
+          return (untung.innerHTML = percent / keuntunganpercent + '%');
+        }
+      });
+    </script>
+  </body>
+</html>
